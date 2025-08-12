@@ -3,3 +3,157 @@
 	margin: 0;
 	padding: 0;
 }
+
+body {
+	font-family: 'Mitr', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	letter-spacing: 0.5px;
+	text-transform: none;
+	white-space: nowrap;
+}
+
+body::after {
+	content: "";
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+	background: linear-gradient(120deg, #23272f 0%, #18181b 100%);
+	pointer-events: none;
+}
+
+/* 
+  body::after คือ pseudo-element ที่ถูกเพิ่มเข้าไปหลังเนื้อหาใน <body>
+  - content: ""; สร้าง element ว่างๆ
+  - display: block; ทำให้ element นี้เป็น block-level
+  - position: fixed; ให้ element นี้อยู่กับตำแหน่งหน้าจอ ไม่เลื่อนตาม scroll
+  - top, left, right, bottom: 0; ขยาย element ให้เต็มหน้าจอ
+  - z-index: -1; วาง element ไว้ข้างหลังเนื้อหาอื่นๆ
+  - background: linear-gradient(120deg, #23272f 0%, #18181b 100%);
+    ใส่พื้นหลังแบบไล่สี (gradient) จากมุม 120 องศา
+  - pointer-events: none; ไม่ให้ element นี้รับ event การคลิกหรือ hover ใดๆ
+*/
+
+.sidebar {
+	align-items: center;
+	background: linear-gradient(135deg, #18181b 0%, #23272f 100%);
+	border-right: 1px solid #3f3f46;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	left: 0;
+	overflow-x: hidden;
+	padding: 16px 20px;
+	position: fixed;
+	top: 0;
+	width: 300px;
+	z-index: 1;
+}
+
+.sidebar hr {
+	border: none;
+	border-top: 2px solid #27272a;
+	border-radius: 100px;
+	margin: 16px 0;
+	width: 90%;
+	align-self: center;
+}
+
+.profile-picture {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	margin-bottom: 20px;
+}
+
+.profile-name {
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.profile-link {
+	color: gray;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+.social-links {
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+}
+
+.social-links a {
+	margin: 0 8px;
+	color: #fff;
+	text-decoration: none;
+	font-size: 18px;
+	background-color: #18181b;
+	border-radius: 6px;
+	padding: 6px 14px;
+	border: 1px solid #27272a;
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+	transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-weight: 500;
+}
+
+.social-links a:hover {
+	background-color: #27272a;
+	border-color: #3f3f46;
+	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.10);
+	color: #a1a1aa;
+}
+
+.sidebar-menu {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.sidebar-menu a {
+	padding: 12px 16px;
+	text-decoration: none;
+	color: #a1a1aa;
+	display: block;
+	transition: background 0.2s, border-color 0.2s;
+	border-radius: 20px;
+	border: 1px solid transparent;
+}
+
+.sidebar-menu a i {
+	color: #a1a1aa;
+	margin-right: 8px;
+}
+
+.sidebar-menu a:hover {
+	background-color: #27272a;
+	border: 1px solid #3f3f46;
+	color: #fff;
+	transition: background 0.2s, border-color 0.2s;
+}
+
+.sidebar-menu a:hover i {
+	color: #fff;
+	transition: color 0.2s;
+}
+
+.sidebar-footer {
+	margin-top: auto;
+	text-align: center;
+}
+
+.sidebar-footer p {
+	font-size: 12px;
+	color: #a1a1aa;
+	margin-top: 20px;
+}
