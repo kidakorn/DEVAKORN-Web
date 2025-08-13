@@ -22,7 +22,7 @@ body::after {
 	right: 0;
 	bottom: 0;
 	z-index: -1;
-	background: linear-gradient(120deg, #23272f 0%, #18181b 100%);
+	background: linear-gradient(120deg, #353945 0%, #23272f 100%);
 	pointer-events: none;
 }
 
@@ -37,6 +37,129 @@ body::after {
     ใส่พื้นหลังแบบไล่สี (gradient) จากมุม 120 องศา
   - pointer-events: none; ไม่ให้ element นี้รับ event การคลิกหรือ hover ใดๆ
 */
+
+/* Navbar */
+
+nav {
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 300px;
+	width: calc(100% - 300px);
+	background-color: rgba(24, 24, 27, 0.3);
+	border-bottom: 1px solid #3f3f46;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	padding: 12px 32px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+	gap: 12px;
+	backdrop-filter: blur(8px);
+}
+
+nav a {
+	color: #a1a1aa;
+	text-decoration: none;
+	padding: 10px 18px;
+	border-radius: 16px;
+	transition: background 0.2s, color 0.2s, box-shadow 0.2s, border 0.2s;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	border: 1px solid transparent; /* เพิ่ม border transparent เพื่อให้ขนาดไม่ขยับ */
+}
+
+nav a:hover,
+nav .active {
+	background-color: #23272f;
+	color: #fff;
+	box-shadow: 0 6px 20px rgba(0,0,0,0.16);
+	border: 1px solid #3f3f46;
+	transition: background 0.2s, color 0.2s, box-shadow 0.2s, border 0.2s;
+}
+
+nav a:hover {
+	transform: translateY(-2px);
+}
+
+nav .active {
+}
+
+nav i {
+	color: #a1a1aa;
+	margin-right: 6px;
+	font-size: 18px;
+	transition: color 0.2s;
+}
+
+nav a:hover i,
+nav .active i {
+	color: #fff;
+}
+
+nav .dropdown {
+	position: relative;
+}
+
+nav .dropdown-btn {
+	background: none;
+	border: 1px solid transparent; /* เพิ่ม border transparent */
+	color: #a1a1aa;
+	cursor: pointer;
+	font-size: 16px;
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	padding: 10px 18px;
+	border-radius: 16px;
+	transition: background 0.2s, color 0.2s, border 0.2s;
+}
+
+nav .dropdown-btn:hover,
+nav .dropdown.open .dropdown-btn {
+	transform: translateY(-2px);
+	color: #fff;
+	border: 1px solid #3f3f46;
+}
+
+nav .dropdown-content {
+	display: none;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	background-color: rgba(24, 24, 27, 0.8);
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
+	min-width: 180px;
+	border-radius: 12px;
+	overflow: hidden;
+	z-index: 10;
+	border: 1px solid transparent; /* เพิ่ม border transparent เพื่อป้องกันขยับ */
+}
+
+nav .dropdown.open .dropdown-content,
+nav .dropdown:hover .dropdown-content {
+	display: block;
+}
+
+nav .dropdown-content a {
+	color: #a1a1aa;
+	padding: 12px 20px;
+	text-decoration: none;
+	display: block;
+	transition: background 0.2s, color 0.2s, border 0.2s;
+	font-size: 15px;
+	border: 1px solid transparent; /* เพิ่ม border transparent */
+}
+
+nav .dropdown-content a:hover {
+	background-color: #27272a;
+	color: #fff;
+	border: 1px solid #3f3f46; /* border สีเทาเมื่อ hover */
+}
+
+
+/* sidebar */
 
 .sidebar {
 	align-items: center;
@@ -156,4 +279,137 @@ body::after {
 	font-size: 12px;
 	color: #a1a1aa;
 	margin-top: 20px;
+}
+
+/* Main content */
+
+.container {
+	margin-left: 300px; /* ข้างๆ sidebar */
+	margin-top: 64px;   /* ล่าง navtop (ปรับตามความสูง nav) */
+	padding: 32px 40px;
+	min-height: calc(100vh - 64px);
+	color: #fff;
+}
+
+.timeline {
+	margin: 32px 0;
+	position: relative;
+}
+
+.timeline h2 {
+	font-size: 24px;
+	margin-bottom: 16px;
+}
+
+.timeline ul {
+	list-style: none;
+	padding: 0;
+	position: relative;
+}
+
+.timeline::before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 0;
+	transform: translateX(-50%);
+	width: 4px;
+	height: 100%;
+	background: #3f3f46;
+	border-radius: 2px;
+	z-index: 0;
+}
+
+.timeline-item {
+	position: relative;
+	width: 50%;
+	padding: 20px 40px;
+	box-sizing: border-box;
+}
+
+.timeline-item {
+	opacity: 0;
+	transform: translateY(40px) scale(0.96);
+	animation: timelineFadeIn 1.5s forwards;
+}
+
+.timeline-item:nth-child(even) {
+	left: 50%;
+	text-align: left;
+}
+
+.timeline-item:nth-child(odd) {
+	left: 0;
+	text-align: right;
+}
+
+.timeline-item::before {
+	content: "";
+	position: absolute;
+	top: 28px;
+	width: 18px;
+	height: 18px;
+	background: #23272f;
+	border: 3px solid #fff;
+	border-radius: 50%;
+	z-index: 2;
+}
+
+.timeline-item:nth-child(odd)::before {
+	right: -9px;
+}
+
+.timeline-item:nth-child(even)::before {
+	left: -9px;
+}
+
+.timeline-date {
+	font-weight: bold;
+	color: #a1a1aa;
+	font-size: 15px;
+	position: relative;
+	z-index: 3; /* เพิ่ม z-index เพื่อให้ date อยู่เหนือจุด timeline */
+	background: inherit; /* ป้องกันโดนบังด้วยจุด timeline */
+	padding: 2px 6px;
+	display: inline-block;
+}
+
+.timeline-content {
+	margin: 4px 0 0;
+	background: #23272f;
+	padding: 16px 20px;
+	border-radius: 12px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+	display: inline-block;
+}
+
+@keyframes timelineFadeIn {
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+	.timeline::before {
+		left: 8px;
+		transform: none;
+	}
+	.timeline-item,
+	.timeline-item:nth-child(even),
+	.timeline-item:nth-child(odd) {
+		width: 100%;
+		left: 0;
+		text-align: left;
+		padding-left: 40px;
+		padding-right: 10px;
+	}
+	.timeline-item::before {
+		left: 0;
+		right: auto;
+	}
+	.timeline-date {
+		padding-left: 28px; /* ขยับ date ออกจากจุด timeline */
+	}
 }

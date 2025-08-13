@@ -10,10 +10,30 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@200;300;400;500;600;700&display=swap"
+		rel="stylesheet">
 </head>
 
 <body>
+	<!-- Navbar -->
+	<nav class="topnav" id="navbar">
+		<a href="#home" class="active"><i class="fa-solid fa-house"></i>Home</a>
+		<a href="#contact"><i class="fa-solid fa-envelope"></i>Contact</a>
+		<div class="dropdown">
+			<button class="dropdown-btn">
+				Portfolio <i class="fa-solid fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+				<a href="#"><i class="fa-solid fa-folder"></i>Project 1</a>
+				<a href="#"><i class="fa-solid fa-folder"></i>Project 2</a>
+				<a href="#"><i class="fa-solid fa-folder"></i>Project 3</a>
+			</div>
+		</div>
+		</div>
+		<a href="#resume"><i class="fa-solid fa-file"></i>Resume</a>
+		<a href="#login" class="login-link"><i class="fa-solid fa-right-to-bracket"></i>Login</a>
+	</nav>
+
 	<!-- Sidebar -->
 	<div class="sidebar">
 		<img src="/images/profile.jpg" alt="my profile picture" class="profile-picture">
@@ -21,9 +41,12 @@
 		<a href="https://line.me/ti/p/oIXCAkx4Xf" class="profile-link" target="_blank">@Kidakorn</a>
 		<!-- social links -->
 		<div class="social-links">
-			<a href="https://www.facebook.com/coke.intha" class="social-links-facebook" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-			<a href="https://www.instagram.com/c0ke_c0ke" class="social-links-instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>	
-			<a href="https://github.com/kidakorn" class="social-links-github" target="_blank"><i class="fa-brands fa-github"></i></a>
+			<a href="https://www.facebook.com/coke.intha" class="social-links-facebook" target="_blank"><i
+					class="fa-brands fa-facebook"></i></a>
+			<a href="https://www.instagram.com/c0ke_c0ke" class="social-links-instagram" target="_blank"><i
+					class="fa-brands fa-instagram"></i></a>
+			<a href="https://github.com/kidakorn" class="social-links-github" target="_blank"><i
+					class="fa-brands fa-github"></i></a>
 		</div>
 		<hr>
 		<!-- sidebar menu -->
@@ -38,6 +61,31 @@
 		<!-- footer -->
 		<div class="sidebar-footer">
 			<p>&copy; 2025 DEVAKORN. All rights reserved.</p>
+		</div>
+	</div>
+
+	<!-- Main Content -->
+	<div class="container">
+		<h1>Welcome to DEVAKORN</h1>
+		<p>Your one-stop solution for all your web development needs.</p>
+
+		<!-- timeline -->
+		<div class="timeline timeline-animate">
+			<h2>Timeline</h2>
+			<ul>
+				<li class="timeline-item">
+					<span class="date timeline-date">2025</span>
+					<p class="timeline-content">Launched DEVAKORN website</p>
+				</li>
+				<li class="timeline-item">
+					<span class="date timeline-date">2024</span>
+					<p class="timeline-content">Started working on web development projects</p>
+				</li>
+				<li class="timeline-item">
+					<span class="date timeline-date">2023</span>
+					<p class="timeline-content">Graduated from university</p>
+				</li>
+			</ul>	
 		</div>
 	</div>
 
